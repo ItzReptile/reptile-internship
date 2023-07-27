@@ -23,6 +23,7 @@ const Author = () => {
         setLoading(false);
       }
     }
+    window.scrollTo(0, 0);
     setTimeout(() => {
       setLoading(true);
       fetchCollections();
@@ -119,7 +120,7 @@ const Author = () => {
 
               <div className="col-md-12">
                 <div className="de_tab tab_simple">
-                  <AuthorItems user={user} loading={loading} />
+                  <AuthorItems user={user} />
                 </div>
               </div>
             </div>
