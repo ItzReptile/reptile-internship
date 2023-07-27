@@ -1,6 +1,6 @@
 import React from "react";
 import { Countdown } from "./Countdown";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 export const NFTCard = ({ nft,user }) => {
   return (
@@ -12,7 +12,7 @@ export const NFTCard = ({ nft,user }) => {
           data-bs-placement="top"
           title="Creator: Monica Lucas"
         >
-          <img className="lazy" src={nft.authorImage} alt="" />
+          <img className="lazy" src={nft.authorImage || user.authorImage} alt="" />
           <i className="fa fa-check"></i>
         </Link>
       </div>
