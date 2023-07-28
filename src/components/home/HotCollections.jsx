@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import AuthorImage from "../../images/author_thumbnail.jpg";
+import "aos/dist/aos.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import React, { Component } from "react";

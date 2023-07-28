@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Slider from "react-slick";
@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "../../css/styles/style.css";
 import Skeleton from "../UI/Skeleton";
 import { NFTCard } from "../UI/NFTCard";
+import "aos/dist/aos.css";
 const NewItems = () => {
   const [fetchedData, setFetchedData] = useState([]);
   const [loading, setLoading] = useState(true);

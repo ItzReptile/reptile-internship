@@ -1,5 +1,5 @@
 import React from "react";
-
+import "aos/dist/aos.css";
 const LandingIntro = () => {
   return (
     <section id="section-intro" className="no-top no-bottom">
