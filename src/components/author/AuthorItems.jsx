@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { NFTCard } from "../UI/NFTCard";
 import Skeleton from "../UI/Skeleton";
-
+import "aos/dist/aos.css";
 const AuthorItems = ({ user }) => {
   const [loading, setLoading] = useState(true);
   const [nftCollection, setNFTCollection] = useState([]);
@@ -59,11 +59,11 @@ const AuthorItems = ({ user }) => {
             : !loading &&
               Array.isArray(user.nftCollection) &&
               user.nftCollection.map((nft, index) => (
-                <div
+                <div data-aos="fade-in" data-aos-delay="500"
                   className="col-lg-3 col-md-6 col-sm-6 col-xs-12"
                   key={index}
                 >
-                  <NFTCard
+                  <NFTCard 
                     user={user}
                     nft={{
                       ...nft,

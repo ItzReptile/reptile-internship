@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import AuthorBanner from "../images/author_banner.jpg";
 import AuthorItems from "../components/author/AuthorItems";
 import { Link } from "react-router-dom";
-import AuthorImage from "../images/author_thumbnail.jpg";
+import "aos/dist/aos.css";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import Skeleton from "../components/UI/Skeleton";
@@ -11,6 +11,25 @@ const Author = () => {
   const { authorId } = useParams();
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
+  const [isFollowing, setIsFollowing] = useState(false);
+
+
+  
+  function addFollower() {
+    let followers = user.followers;
+    if (isFollowing === false) {
+      user.followers = followers + 1;
+      setIsFollowing(true);
+    }
+    if (isFollowing === true) {
+      user.followers = followers - 1;
+      setIsFollowing(false);
+    }
+  }
+
+
+
+
 
   useEffect(() => {
     async function fetchCollections() {
@@ -85,19 +104,42 @@ const Author = () => {
                   <div className="d_profile de-flex">
                     <div className="de-flex-col">
                       <div className="profile_avatar">
-                        <img src={user.authorImage} alt="" />
+                        <img
+                          data-aos="fade-in"
+                          data-aos-delay="400"
+                          src={user.authorImage}
+                          alt=""
+                        />
 
-                        <i className="fa fa-check"></i>
+                        <i
+                          data-aos="fade-in"
+                          data-aos-delay="400"
+                          className="fa fa-check"
+                        ></i>
                         <div className="profile_name">
-                          <h4>
+                          <h4 data-aos="fade-in" data-aos-delay="400">
                             {user.authorName}
-                            <span className="profile_username">
+                            <span
+                              data-aos="fade-in"
+                              data-aos-delay="400"
+                              className="profile_username"
+                            >
                               @{user.tag}
                             </span>
-                            <span id="wallet" className="profile_wallet">
+                            <span
+                              data-aos="fade-in"
+                              data-aos-delay="400"
+                              id="wallet"
+                              className="profile_wallet"
+                            >
                               {user.address}
                             </span>
-                            <button id="btn_copy" title="Copy Text">
+                            <button
+                              data-aos="fade-in"
+                              data-aos-delay="400"
+                              id="btn_copy"
+                              title="Copy Text"
+                            >
                               Copy
                             </button>
                           </h4>
@@ -105,13 +147,17 @@ const Author = () => {
                       </div>
                     </div>
                     <div className="profile_follow de-flex">
-                      <div className="de-flex-col">
+                      <div
+                        data-aos="fade-in"
+                        data-aos-delay="400"
+                        className="de-flex-col"
+                      >
                         <div className="profile_follower">
                           {user.followers} followers
                         </div>
-                        <Link to="#" className="btn-main">
-                          Follow
-                        </Link>
+                        <button onClick={addFollower} className="btn-main ">
+                        {isFollowing ? "Unfollow" : "Follow"}
+                        </button>
                       </div>
                     </div>
                   </div>
