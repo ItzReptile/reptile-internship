@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Slider from "react-slick";
@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "../../css/styles/style.css";
 import Skeleton from "../UI/Skeleton";
 import { NFTCard } from "../UI/NFTCard";
+import "aos/dist/aos.css";
 const NewItems = () => {
   const [fetchedData, setFetchedData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -97,7 +98,7 @@ const NewItems = () => {
   return (
     <section id="section-items" className="no-bottom">
       <div className="container">
-        <div className="row">
+        <div data-aos="fade-in" data-aos-delay="500" className="row">
           <div className="col-lg-12">
             <div className="text-center">
               <h2>New Items</h2>

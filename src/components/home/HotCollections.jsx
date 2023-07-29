@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import AuthorImage from "../../images/author_thumbnail.jpg";
+import "aos/dist/aos.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import React, { Component } from "react";
@@ -68,6 +68,7 @@ const HotCollections = () => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
+         
         },
       },
       {
@@ -92,9 +93,9 @@ const HotCollections = () => {
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-            <div className="carousel-container">
+            <div data-aos="fade-in" data-aos-delay="500" className="carousel-container">
               <div className="text-center">
-                <h2>Hot Collections</h2>
+                <h2 >Hot Collections</h2>
                 <div className="small-border bg-color-2"></div>
               </div>
               {loading && (
@@ -129,12 +130,13 @@ const HotCollections = () => {
                 </>
               )}
 
-              <Slider {...settings}>
+              <Slider  {...settings}>
                 {fetchedData.map((nft, index) => (
                   <div loop margin={10} key={index} nav>
                     <div className="nft_coll">
                       <div className="nft_wrap">
-                        <Link to="/item-details">
+                        <Link 
+                        to={`/item-details/${nft.nftId}`}>
                           <img
                             src={nft.nftImage}
                             className="lazy img-fluid"
@@ -143,7 +145,7 @@ const HotCollections = () => {
                         </Link>
                       </div>
                       <div className="nft_coll_pp">
-                        <Link to="/author">
+                        <Link to={`/author/${nft.authorId}`}>
                           <img
                             className="lazy pp-coll"
                             src={nft.authorImage}
